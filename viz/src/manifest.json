@@ -1,0 +1,24 @@
+{
+  "name": "star rating v2",
+  "organization": "kopp consulting",
+  "description": "A visualisation that can display a range of stars (perfect e.g. for displaying User Ratings).",
+  "logoUrl": "https://kopp.consulting/wp-content/uploads/2021/04/lost-found-logo-favicon.png",
+  "organizationUrl": "https://kopp.consulting",
+  "supportUrl": "https://kopp.consulting/datastudio-star-rating-v2",
+  "privacyPolicyUrl": "https://kopp.consulting/privacy-policy",
+  "termsOfServiceUrl": "https://kopp.consulting/privacy-policy",
+  "packageUrl": "https://datastudio.google.com/u/0/reporting/47b59d51-0302-4dcb-a84a-3c154b5c9577",
+  "devMode": false,
+  "components": [
+    {
+      "name": "Star Rating v2",
+      "description": "A visualisation that can display a range of stars (perfect e.g. for displaying User Ratings).",
+      "iconUrl": "https://kopp.consulting/wp-content/uploads/2021/04/star_vis_icon.jpg",
+      "resource": {
+        "js": "YOUR_GCS_BUCKET/index.js",
+        "config": "YOUR_GCS_BUCKET/index.json",
+        "css": "YOUR_GCS_BUCKET/index.css"
+      }
+    }
+  ]
+}

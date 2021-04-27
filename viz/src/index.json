@@ -1,0 +1,142 @@
+{
+  "data": [
+    {
+      "id": "concepts",
+      "label": "Concepts",
+      "elements": [
+        {
+          "id": "starDimension",
+          "label": "A dimension",
+          "type": "DIMENSION",
+          "options": {
+            "min": 0,
+            "max": 1
+          }
+        },
+        {
+          "id": "starMetric",
+          "label": "A metric",
+          "type": "METRIC",
+          "options": {
+            "min": 1,
+            "max": 1
+          }
+        }
+      ]
+    }
+  ],
+  "style": [
+    {
+      "id": "textOptions",
+      "label": "Text Options",
+      "elements": [{
+          "id": "fontColor",
+          "label": "Font Color",
+          "defaultValue": {
+            "color": "#333333"
+          },
+          "type": "FONT_COLOR"
+        },{
+          "id": "font",
+          "label": "Font family",
+          "defaultValue": "Roboto",
+          "type": "FONT_FAMILY"
+        },{
+          "id": "fontSize",
+          "label": "Font Size",
+          "defaultValue": 12,
+          "type": "FONT_SIZE"
+        },{
+          "id": "hideText",
+          "label": "Hide Metric Text",
+          "defaultValue": false,
+          "type": "CHECKBOX"
+        },{
+          "id": "hideDimension",
+          "label": "Hide Dimension Text",
+          "defaultValue": false,
+          "type": "CHECKBOX"
+        }
+      ]
+    },{
+      "id": "starOptions",
+      "label": "Icon Options",
+      "elements":[
+        {
+          "id": "iconFill",
+          "label": "Icon Fill Color",
+          "defaultValue": {
+            "color": "#333333"
+          },
+          "type": "FILL_COLOR"
+        },
+        {
+          "id": "emptyFill",
+          "label": "Empty Star Fill Color",
+          "defaultValue": {
+            "color": "#ddd"
+          },
+          "type": "FILL_COLOR"
+        },
+        {
+          "id": "iconBorderColor",
+          "label": "Icon Border Color",
+          "defaultValue": {
+            "color": "#333333"
+          },
+          "type": "BORDER_COLOR"
+        },
+        {
+          "id": "starHeight",
+          "label": "Height of a star",
+          "defaultValue": 12,
+          "type": "FONT_SIZE"
+        },
+        {
+          "id": "iconBorderWidth",
+          "label": "Icon Border Width",
+          "defaultValue": 2,
+          "type": "LINE_WEIGHT"
+        },
+        {
+          "id": "numStars",
+          "label": "Stars to be displayed",
+          "defaultValue": 5,
+          "type": "INTERVAL"
+        },
+        {
+          "id": "chubbyness",
+          "label": "All Stars are beautiful! Make em chubby :)",
+          "defaultValue": 9,
+          "type": "INTERVAL"
+        }
+      ]
+    },{
+      "id": "padding",
+      "label": "Padding",
+      "elements":[
+        {
+          "id": "top",
+          "label": "Top",
+          "defaultValue": 5,
+          "type": "INTERVAL"
+        },{
+          "id": "left",
+          "label": "Left",
+          "defaultValue": 5,
+          "type": "INTERVAL"
+        },{
+          "id": "right",
+          "label": "Right",
+          "defaultValue": 5,
+          "type": "INTERVAL"
+        },{
+          "id": "between",
+          "label": "Between Elements",
+          "defaultValue": 5,
+          "type": "INTERVAL"
+        }
+      ]
+    }
+  ]
+}
