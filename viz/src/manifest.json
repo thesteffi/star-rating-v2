@@ -8,7 +8,7 @@
   "privacyPolicyUrl": "https://kopp.consulting/privacy-policy",
   "termsOfServiceUrl": "https://kopp.consulting/privacy-policy",
   "packageUrl": "https://datastudio.google.com/u/0/reporting/47b59d51-0302-4dcb-a84a-3c154b5c9577",
-  "devMode": false,
+  "devMode": true,
   "components": [
     {
       "name": "Star Rating v2",
