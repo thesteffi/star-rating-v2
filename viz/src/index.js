@@ -1,7 +1,6 @@
 const dscc = require('@google/dscc');
 const local = require('./localMessage.js');
 
-
 // write viz code here
 const drawViz = (data) => {
 
@@ -46,16 +45,9 @@ const drawViz = (data) => {
   }
 
   const showError = (message) => {
-    console.error(message);
     outer.innerText = message;
     outer.style.cssText = "background-color: red; color: white";
   }
-
-
-  /* debug only */
-  console.log(data);
-  console.log(style);
-  /* end debug only */
 
   //check if has data
   if (tableData.length < 1 || typeof tableData[0].starMetric === 'undefined') {
@@ -68,15 +60,9 @@ const drawViz = (data) => {
   
 
   tableData.forEach((tdata, index) => {
-    let metric = tdata.starMetric[0];
-    try{
-      metric = Number.parseFloat(metric).toFixed(2);
-    }catch(e){
-
-    }
     
-    console.log(metric);
-    let dimension = "(not set)";
+    let metric = Number.parseFloat(tdata.starMetric[0]).toFixed(2);
+    let dimension = "(none)";
     if(tdata.starDimension){
       dimension = tdata.starDimension[0];
     }
@@ -103,14 +89,13 @@ const drawViz = (data) => {
     document.getElementById('star-vis-outer').appendChild(row);
     let svgContainer = document.getElementById(`starPlaceholder${index}`);
 
-
     // calculate stars
     let h = 50;
     let centerX = h / 2;
     let centerY = h / 2;
     let numPoints = 5;
     let outerRadius = (h / 2) - style.icon.borderWidth;
-    let innerOuterRadiusRatio = style.icon.chubbyness / 4;
+    let innerOuterRadiusRatio = Math.max(style.icon.chubbyness, 4) / 4; // make sure values don't drop below 0
     let innerRadius = outerRadius / innerOuterRadiusRatio;
 
     let points = ((centerX, centerY, numPoints, innerRadius, outerRadius) => {
@@ -127,34 +112,18 @@ const drawViz = (data) => {
       }
       return points;
     })(centerX, centerY, numPoints, innerRadius, outerRadius);
-    console.log(points);
-
 
     // Returns metric without possible decimal
     const fullStars = parseInt(metric);
     /**
       Determine whether or not a partially-filled star is needed#
     **/
-    let partialStar;
-    let digits;
-    let partialStarPercentage;
-    let dynamicGradientStop;
 
-    // If decimal, get decimal
-    if (metric.toString().indexOf('.') > -1) { 
-      partialStar = metric.toString().split('.')[1];
-      digits = partialStar.length;
-      if (digits == 1) {
-        partialStarPercentage = (partialStar * 10).toString();
-      }
-      if (digits == 2) {
-        partialStarPercentage = (partialStar).toString();
-      }
+    let rest = metric % 1;
+    let percentage = undefined;
+    if(rest > 0){
+      percentage = Math.round(rest * 100);
     }
-    if (partialStar) {
-      dynamicGradientStop = partialStarPercentage;
-    }
-
 
     for(let i = 0; i < style.numStars; i++){
       let svgElem = document.createElementNS("http://www.w3.org/2000/svg","svg");
@@ -167,7 +136,7 @@ const drawViz = (data) => {
       if(i < fullStars){
         color = style.icon.fillColor;
       }
-      if(partialStar && i == fullStars){
+      if(percentage && i == fullStars){
         let defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
         let linGrad = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
         linGrad.setAttributeNS(null,"id",`gradient${index}`);
@@ -178,7 +147,7 @@ const drawViz = (data) => {
         let stops = [
           {
             style : `stop-color: ${style.icon.fillColor}; stop-opacity: 1`,
-            dynStop : `${dynamicGradientStop}%`
+            dynStop : `${percentage}%`
           },{
             style : `stop-color: ${style.icon.empty}; stop-opacity: 1`,
             dynStop : `0%`
@@ -206,30 +175,9 @@ const drawViz = (data) => {
       svgContainer.appendChild(svgElem);
     }
   });
-
-  /*
-    Recalculate Widths to align items
-  */
-
-  function getMaxWidth(els){
-    let max = 0;
-    Array.from(els).forEach(el=>{
-      let w = el.getBoundingClientRect().width;
-      if(w > max){
-        max = w;
-      }
-    });
-    return max;
-  }
-  let dims = document.querySelectorAll('.dimension');
-  console.log(getMaxWidth(dims));
-  var mets = document.querySelectorAll('.metric');
-  console.log(getMaxWidth(mets));
-
 }
 
-
-// renders locally if set to true
+// renders locally
 const DSCC_IS_LOCAL = false;
 if (DSCC_IS_LOCAL) {
   drawViz(local.message);
