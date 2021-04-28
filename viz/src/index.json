@@ -109,11 +109,21 @@
           "label": "All Stars are beautiful! Make em chubby :)",
           "defaultValue": 9,
           "type": "INTERVAL"
+        },{
+          "id": "fullStarsOnly",
+          "label": "Show Filled Stars only",
+          "defaultValue": false,
+          "type": "CHECKBOX"
+        },{
+          "id": "reverseStars",
+          "label": "Reverse Star order",
+          "defaultValue": false,
+          "type": "CHECKBOX"
         }
       ]
     },{
-      "id": "padding",
-      "label": "Padding",
+      "id": "margin",
+      "label": "Margin",
       "elements":[
         {
           "id": "top",
@@ -134,6 +144,11 @@
           "id": "between",
           "label": "Between Elements",
           "defaultValue": 5,
+          "type": "INTERVAL"
+        },{
+          "id": "betweenStars",
+          "label": "Between Stars",
+          "defaultValue": 0,
           "type": "INTERVAL"
         }
       ]

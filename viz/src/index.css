@@ -10,15 +10,18 @@ code {
 
 
 .row{
-  display: flex;
-  align-items: center;
-  align-content: flex-start;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: 1fr auto;
 }
 
 .starPlaceholder{
   display: flex;
-  align-self: center;
+  align-self: baseline;
+}
+
+.col2{
+  display: inline-grid;
+  grid-template-columns: auto 1fr;
 }
 
 .hide{
