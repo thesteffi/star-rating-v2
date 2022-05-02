@@ -4,14 +4,15 @@
   "description": "A visualisation that can display a range of stars (perfect e.g. for displaying User Ratings).",
   "logoUrl": "https://kopp.consulting/wp-content/uploads/2021/04/lost-found-logo-favicon.png",
   "organizationUrl": "https://kopp.consulting",
-  "supportUrl": "https://kopp.consulting/datastudio-star-rating-v2",
+  "supportUrl": "https://kopp.consulting/support",
   "privacyPolicyUrl": "https://kopp.consulting/privacy-policy",
-  "termsOfServiceUrl": "https://kopp.consulting/privacy-policy",
+  "termsOfServiceUrl": "https://github.com/thesteffi/star-rating-v2/blob/56237972ad29a447184c4780820d44f0c1c03693/LICENSE",
   "packageUrl": "https://datastudio.google.com/u/0/reporting/47b59d51-0302-4dcb-a84a-3c154b5c9577",
   "devMode": true,
   "components": [
     {
-      "name": "Star Rating v2",
+      "id":"starRatingV2"
+      "name": "Star Rating",
       "description": "A visualisation that can display a range of stars (perfect e.g. for displaying User Ratings).",
       "iconUrl": "https://kopp.consulting/wp-content/uploads/2021/04/star_vis_icon.jpg",
       "resource": {
