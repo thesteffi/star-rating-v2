@@ -11,7 +11,7 @@
   "devMode": true,
   "components": [
     {
-      "id":"starRatingV2"
+      "id":"starRatingV2",
       "name": "Star Rating",
       "description": "A visualization that can display a range of stars (perfect e.g. for displaying User Ratings).",
       "iconUrl": "https://kopp.consulting/wp-content/uploads/2021/04/star_vis_icon.jpg",
